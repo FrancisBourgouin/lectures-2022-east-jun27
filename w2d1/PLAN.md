@@ -31,7 +31,7 @@ const sizeOfSip = 50;
 ```jsx
   const modifiedMug = {
     startingVol: 700,
-    currentVol: 200,
+    currentVol: 450,
     contents:"Tea (Not the mister)"
     name: "Mugginator",
   };
@@ -51,6 +51,14 @@ mugObject.currentVol -= sizeOfSip;
 
 ```jsx
 // WAAAAAAAT ?
+
+const keys = Object.keys(mug);
+
+for (const key of keys) {
+  if (!["name", "content", "initialVol", "currentVol"].includes(key)) {
+    return "invalid key";
+  }
+}
 ```
 
 # Test cases
