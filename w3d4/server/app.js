@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express"); // Requires Express Framework (Routing / Server)
 const path = require("path"); // Requires Path (Multiple OS path support)
 const cookieParser = require("cookie-parser"); // Require Cookie Parser (Parse string to cookie)
@@ -49,14 +50,14 @@ app.use((req, res, next) => {
 const user1 = {
   name: "Dimitri Ivanovich Mendeleiv",
   email: "periodic@table.com",
-  password: bcrypt.hashSync("hydrogen", salt),
+  password: bcrypt.hashSync(process.env.USER1_PASSWORD, salt),
   secret: "Actually prefers biology",
 };
 
 const user2 = {
   name: "Doug Judy",
   email: "pontiac@bandit.com",
-  password: bcrypt.hashSync("rosa", salt),
+  password: bcrypt.hashSync(process.env.USER2_PASSWORD, salt),
   secret: "doesn't drive stick",
 };
 
