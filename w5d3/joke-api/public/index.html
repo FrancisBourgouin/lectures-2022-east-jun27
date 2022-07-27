@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>Express</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+
+  <body>
+    <h1>Express</h1>
+    <p>Welcome to Express</p>
+
+    <button id="fetch">FETCH JOKES</button>
+    <button id="add">ADD JOKE</button>
+  </body>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script>
+    const fetchJokes = () => {
+      $.get("/api/jokes")
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    };
+
+    const addJoke = () => {
+      $.ajax({
+        url: "/api/jokes",
+        method: "POST",
+        data: {
+          question: "Rawr?",
+          answer: "Rawr rawr",
+          rating: 5,
+          author_id: 2,
+        },
+      })
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    };
+
+    $("button#fetch").click(fetchJokes);
+    $("button#add").click(addJoke);
+
+    $.ready(() => {});
+  </script>
+</html>
