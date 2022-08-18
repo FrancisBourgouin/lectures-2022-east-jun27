@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./components/Header";
 import RepoForm from "./components/RepoForm";
 import CommitList from "./components/CommitList";
+import Spy from "./components/Spy";
 import axios from "axios";
 import { Component } from "react";
 
@@ -23,6 +24,7 @@ class App extends Component {
     super();
     this.state = {
       commitData: undefined,
+      spyFound: false,
     };
   }
 
@@ -34,13 +36,14 @@ class App extends Component {
   };
 
   render() {
-    const { commitData } = this.state;
+    const { commitData, spyFound } = this.state;
 
     return (
       <div className="App">
         <Header />
         <RepoForm onSubmit={this.fetchCommits} />
         {commitData && <CommitList commitData={commitData} />}
+        {!spyFound && <Spy />}
       </div>
     );
   }

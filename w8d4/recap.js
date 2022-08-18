@@ -60,3 +60,9 @@ const someFunction = function () {
 };
 
 someFunction();
+
+// Hooks simpler to implement
+// Hooks more modular
+// custom hooks
+
+usePotato;
